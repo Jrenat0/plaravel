@@ -1,7 +1,9 @@
 @extends('templates.master')
 
 @section('contenido-principal')
-    <h3 class="m-1">Usuarios</h3>
+    <div class="my-2 mx-1">
+        <h2 class="m-1"><em>Usuarios</em></h2>
+    </div>
     <!-- tabla  -->
     <div class="row p-1">
         <div class="col">
@@ -26,7 +28,7 @@
                         </td>
                         <td class="d-none d-lg-block">{{$usuario->nombre}}</td>
                         <td>{{$usuario->perfil->nombre ?? 'N/A' }}</td>
-                        
+
                         {{-- EDIT --}}
                         <td class="text-center">
                             <a href="{{route('usuarios.edit', $usuario->email)}}" class="btn btn-sm btn-warning">
@@ -36,33 +38,38 @@
 
                         {{-- BORRAR --}}
                         <td class="text-center">
-                            <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#borrarModal{{$usuario->email}}">
+                            <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal"
+                                data-bs-target="#borrarModal{{$usuario->email}}">
                                 <i class="fa-solid fa-trash-can"></i>
                             </button>
                         </td>
                     </tr>
                     {{-- CONFIRMACION BORRADO --}}
-                    <div class="modal fade" id="borrarModal{{$usuario->email}}" tabindex="-1" aria-labelledby="borrarModal{{$usuario->email}}Label" aria-hidden="true">
+                    <div class="modal fade" id="borrarModal{{$usuario->email}}" tabindex="-1"
+                        aria-labelledby="borrarModal{{$usuario->email}}Label" aria-hidden="true">
                         <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h1 class="modal-title fs-5" id="borrarModal{{$usuario->email}}Label">Confrimacion de borrado</h1>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="borrarModal{{$usuario->email}}Label">Confrimacion
+                                        de borrado</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    ¿Desea borrar al usuario: <strong>{{$usuario->nombre}}</strong>?
+                                </div>
+                                <div class="modal-footer">
+                                    <form method="POST" action="{{route('usuarios.destroy', $usuario->email)}}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="button" class="btn btn-danger"
+                                            data-bs-dismiss="modal">Cancelar</button>
+                                        <button type="submit" class="btn btn-info">Borrar</button>
+                                    </form>
+                                </div>
                             </div>
-                            <div class="modal-body">
-                                ¿Desea borrar al usuario: <strong>{{$usuario->nombre}}</strong>?
-                            </div>
-                            <div class="modal-footer">
-                                <form method="POST" action="{{route('usuarios.destroy', $usuario->email)}}">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                                    <button type="submit" class="btn btn-info">Borrar</button>
-                                </form>
-                            </div>
-                          </div>
                         </div>
-                      </div>
+                    </div>
                     @endforeach
                 </tbody>
             </table>
@@ -77,4 +84,4 @@
             </a>
         </div>
     </div>
-@endsection()
+    @endsection()

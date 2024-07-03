@@ -12,7 +12,7 @@ $(document).ready(function() {
 
 @section('contenido-principal')
     <div class="row my-2 mx-1">
-        <h3 class="">Tipos de vehiculos</h3>
+        <h2 class="m-1"><em>Tipos de Vehiculos</em></h2>
     </div>
     
     <div class="row">
