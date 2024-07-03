@@ -5,11 +5,12 @@ use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\VehiculosController;
 use App\Http\Controllers\TiposController;
 use App\Http\Controllers\ClientesController;
+use App\Http\Controllers\HomeController;
 
 
-Route::get('/', function () {
-    return view('prueba');
-});
+
+// Homecontroller vista home
+Route::get('/',[HomeController::class,'index'])->name('home.index');
 
 //Route::resource('/', UsuariosController::class);
 Route::get('/usuarios', [UsuariosController::class, 'index'])->name('usuarios.index');
@@ -48,6 +49,7 @@ Route::get('/clientes/{cliente}/edit', [ClientesController::class, 'edit']) -> n
 Route::put('/clientes/{cliente}', [ClientesController::class, 'update']) -> name('clientes.update');
 Route::delete('/clientes/{cliente}', [ClientesController::class, 'destroy']) -> name('clientes.destroy');
 Route::get('/clientes/{cliente}', [ClientesController::class, 'show']) ->name('clientes.show');
+
 
 
 

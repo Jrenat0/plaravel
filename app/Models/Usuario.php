@@ -23,4 +23,12 @@ class Usuario extends Authenticatable
         return $this->belongsTo(Perfil::class);
     }
 
+    public function esAdmin():bool{
+        return $this->perfil->nombre =='Administrador';
+    }
+
+    public function esEjecutivo():bool{
+        return $this->perfil->nombre == 'Ejecutivo';
+    }
+
 }
