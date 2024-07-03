@@ -31,6 +31,9 @@ class UsuariosController extends Controller
      */
     public function create()
     {
+        if(Gate::denies('usuarios-gestion')){
+            return redirect()->route('home.index');
+        }
         $perfiles = Perfil::all();
         return view('usuarios.create', compact('perfiles'));
     }
@@ -64,6 +67,11 @@ class UsuariosController extends Controller
      */
     public function edit(Usuario $usuario)
     {
+
+        if(Gate::denies('usuarios-gestion')){
+            return redirect()->route('home.index');
+        }
+
         $perfiles = Perfil::all();
         return view('usuarios.edit', compact(['usuario', 'perfiles']));
     }
@@ -102,6 +110,8 @@ class UsuariosController extends Controller
     }
 
     public function autenticar(Request $request){
+
+
         $credenciales = ['email'=>$request->email,'password'=>$request->password];
         
         if(Auth::attempt($credenciales)){

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Cliente;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Gate;
+
 
 class ClientesController extends Controller
 {
@@ -13,6 +15,12 @@ class ClientesController extends Controller
      */
     public function index()
     {
+
+        if(Gate::denies('servicios-gestion')){
+            return redirect()->route('home.index');
+        }
+
+
         $clientes = Cliente::all();
         return view('clientes.index', compact('clientes'));
     }
@@ -45,6 +53,11 @@ class ClientesController extends Controller
      */
     public function show(Cliente $cliente)
     {
+
+        if(Gate::denies('servicios-gestion')){
+            return redirect()->route('home.index');
+        }
+
         return view('clientes.show', compact('cliente'));
     }
 
@@ -53,6 +66,11 @@ class ClientesController extends Controller
      */
     public function edit(Cliente $cliente)
     {
+
+        if(Gate::denies('servicios-gestion')){
+            return redirect()->route('home.index');
+        }
+
         return view('clientes.edit', compact('cliente'));
     }
 

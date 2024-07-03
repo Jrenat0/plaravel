@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Tipo;
 use App\Models\Vehiculo;
+use Illuminate\Support\Facades\Gate;
 
 
 
@@ -12,6 +13,11 @@ class VehiculosController extends Controller
 {
     public function index()
     {
+
+        if(Gate::denies('servicios-gestion')){
+            return redirect()->route('home.index');
+        }
+
         $tipos = Tipo::all();
         $vehiculos = Vehiculo::all();
         return view('vehiculos.index', compact(['vehiculos', 'tipos']));
@@ -22,6 +28,11 @@ class VehiculosController extends Controller
      */
     public function create()
     {
+
+        if(Gate::denies('servicios-gestion')){
+            return redirect()->route('home.index');
+        }
+
         $tipos = Tipo::all();
         return view('vehiculos.create', compact('tipos'));
     }
@@ -57,6 +68,10 @@ class VehiculosController extends Controller
      */
     public function edit(Vehiculo $vehiculo)
     {
+
+        if(Gate::denies('servicios-gestion')){
+            return redirect()->route('home.index');
+        }
 
         $opciones = ['Disponible','Arrendado','De baja', 'En mantenimiento'];
 

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Tipo;
+use Illuminate\Support\Facades\Gate;
+
 
 
 class TiposController extends Controller
@@ -13,6 +15,11 @@ class TiposController extends Controller
      */
     public function index()
     {   
+
+        if(Gate::denies('servicios-gestion')){
+            return redirect()->route('home.index');
+        }
+
         $tipos = Tipo::all();
         return view('tipos.index', compact('tipos'));
     }
@@ -51,6 +58,11 @@ class TiposController extends Controller
      */
     public function edit(Tipo $tipo)
     {
+
+        if(Gate::denies('servicios-gestion')){
+            return redirect()->route('home.index');
+        }
+
         return view('tipos.edit', compact('tipo'));
     }
 
