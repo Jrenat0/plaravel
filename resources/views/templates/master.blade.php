@@ -36,25 +36,25 @@
 
           @if(Gate::allows('usuarios-gestion'))
           <li class="nav-item">
-            <a class="nav-link {{ Route::is('usuarios.index') ? 'active' : '' }}" aria-current="page" href="{{route('usuarios.index')}}">Gestionar Usuarios</a>
+            <a class="nav-link {{ Route::is('usuarios.index') ? 'active' : '' }}"  href="{{route('usuarios.index')}}">Gestionar Usuarios</a>
           </li>
           @endif
 
           @if(Gate::allows('servicios-gestion'))
           <li class="nav-item">
-            <a class="nav-link {{ Route::is('vehiculos.index') ? 'active' : '' }}" aria-current="page" href="{{route('vehiculos.index')}}">Gestionar Vehiculos</a>
+            <a class="nav-link {{ Route::is('vehiculos.index') ? 'active' : '' }}"  href="{{route('vehiculos.index')}}">Gestionar Vehiculos</a>
           </li>
 
-          <li class="nav-item {{ Route::is('tipos.index') ? 'active' : '' }}">
-            <a class="nav-link" aria-current="page" href="{{route('tipos.index')}}" aria-current="page" >Gestionar Tipos</a>
+          <li class="nav-item">
+            <a class="nav-link {{ Route::is('tipos.index') ? 'active' : '' }}" aria-current="page" href="{{route('tipos.index')}}">Gestionar Tipos</a>
           </li>
 
-          <li class="nav-item {{ Route::is('clientes.index') ? 'active' : '' }}">
-            <a class="nav-link" aria-current="page" href="{{route('clientes.index')}}" aria-current="page">Gestionar Clientes</a>
+          <li class="nav-item ">
+            <a class="nav-link {{ Route::is('clientes.index') ? 'active' : '' }}" aria-current="page" href="{{route('clientes.index')}}">Gestionar Clientes</a>
           </li>
 
-          <li class="nav-item {{ Route::is('') ? 'active' : '' }}" aria-current="page">
-            <a class="nav-link" aria-current="page" href="#">Gestionar Arriendos</a>
+          <li class="nav-item" aria-current="page">
+            <a class="nav-link {{ Route::is('') ? 'active' : '' }}" aria-current="page" href="#">Gestionar Arriendos</a>
           </li>
           @endif
 
