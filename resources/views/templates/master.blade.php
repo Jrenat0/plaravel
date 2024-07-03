@@ -12,7 +12,16 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+
+  <script> @yield('scripts') </script>
+
+
+
   <style>
+
     body {
       background-image: linear-gradient(#98FFE0, #003817);
       min-height: 100vh;
@@ -36,21 +45,25 @@
 
           @if(Gate::allows('usuarios-gestion'))
           <li class="nav-item">
-            <a class="nav-link {{ Route::is('usuarios.index') ? 'active' : '' }}"  href="{{route('usuarios.index')}}">Gestionar Usuarios</a>
+            <a class="nav-link {{ Route::is('usuarios.index') ? 'active' : '' }}"
+              href="{{route('usuarios.index')}}">Gestionar Usuarios</a>
           </li>
           @endif
 
           @if(Gate::allows('servicios-gestion'))
           <li class="nav-item">
-            <a class="nav-link {{ Route::is('vehiculos.index') ? 'active' : '' }}"  href="{{route('vehiculos.index')}}">Gestionar Vehiculos</a>
+            <a class="nav-link {{ Route::is('vehiculos.index') ? 'active' : '' }}"
+              href="{{route('vehiculos.index')}}">Gestionar Vehiculos</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link {{ Route::is('tipos.index') ? 'active' : '' }}" aria-current="page" href="{{route('tipos.index')}}">Gestionar Tipos</a>
+            <a class="nav-link {{ Route::is('tipos.index') ? 'active' : '' }}" aria-current="page"
+              href="{{route('tipos.index')}}">Gestionar Tipos</a>
           </li>
 
           <li class="nav-item ">
-            <a class="nav-link {{ Route::is('clientes.index') ? 'active' : '' }}" aria-current="page" href="{{route('clientes.index')}}">Gestionar Clientes</a>
+            <a class="nav-link {{ Route::is('clientes.index') ? 'active' : '' }}" aria-current="page"
+              href="{{route('clientes.index')}}">Gestionar Clientes</a>
           </li>
 
           <li class="nav-item" aria-current="page">
@@ -80,6 +93,10 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
   </script>
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 </body>
 
 </html>

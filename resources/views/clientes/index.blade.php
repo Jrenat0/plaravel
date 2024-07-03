@@ -1,5 +1,18 @@
 @extends('templates.master')
 
+
+
+@section('scripts')
+
+$(document).ready(function() {
+    $('#btnLimpiar').click(function() {
+        $('form')[0].reset(); // Esto vacía todos los campos del primer formulario encontrado en la página
+    });
+});
+
+@endsection
+
+
 @section('contenido-principal')
 <div class="row my-2 mx-1">
     <h3 class="">Clientes registrados</h3>
@@ -28,8 +41,9 @@
                         <input type="date" class="form-control" id="fecha_nac" name="fecha_nac">
                     </div>
                     <div class="mt-3 me-2 d-flex justify-content-end">
-                        <button class="btn btn-sm btn-warning me-2">Restablecer</button>
-                        <button class="btn btn-sm btn-info" type="submit">Registrar Usuario</button>
+                        <button class="btn btn-sm btn-warning me-2" type="button" id="btnLimpiar">Restablecer</button>
+
+                        <button class="btn btn-sm btn-success" type="submit">Registrar Usuario</button>
                     </div>
                 </form>
             </div>

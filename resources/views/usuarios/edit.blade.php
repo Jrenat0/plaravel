@@ -1,5 +1,17 @@
 @extends('templates.master')
 
+@section('scripts')
+
+$(document).ready(function() {
+    $('#btnLimpiar').click(function() {
+        // Vaciar los campos del formulario
+        $('form')[0].reset(); // Esto vacía todos los campos del primer formulario encontrado en la página
+    });
+});
+
+@endsection
+
+
 @section('contenido-principal')
 <div class="row">
     <div class="card mt-2 ">
@@ -31,8 +43,10 @@
             </div>
             
             <div class="m-3 d-flex justify-content-end">
-                <button type="reset" class="btn btn-warning me-1">Cancelar</button>
-                <button type="submit" class="btn btn-info ms-2">Editar</button>
+
+                <button type="button" id="btnLimpiar" class="btn btn-warning me-1">Restablecer Campos</button>
+
+                <button type="submit" class="btn btn-success ms-2">Aplicar Cambios</button>
             </div>
 
           </form>

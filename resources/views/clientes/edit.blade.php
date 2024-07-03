@@ -1,5 +1,15 @@
 @extends('templates.master')
 
+@section('scripts')
+
+$(document).ready(function() {
+    $('#btnLimpiar').click(function() {
+        $('form')[0].reset();
+    });
+});
+
+@endsection
+
 @section('contenido-principal')
 <div class="row">
     <div class="card m-3 p-1 ">
@@ -10,7 +20,7 @@
           <form method="POST" action="{{route('clientes.update', $cliente->rut)}}" >
             @csrf
             @method('put')
-            <div>
+            <div class="mb-3">
                 <label class="form-label" for="nombre">Nombre: </label>
                 <input type="text" name="nombre" id="nombre" class="form-control" value="{{$cliente->nombre}}">
             </div>
@@ -20,8 +30,9 @@
             </div>
 
             <div class="m-3 d-flex justify-content-end">
-                <button type="reset" class="btn btn-warning me-1 btn-sm">Cancelar</button>
-                <button type="submit" class="btn btn-info ms-2 btn-sm">Editar</button>
+                <button type="button" id="btnLimpiar" class="btn btn-warning me-1 btn-sm">Restablecer Campos</button>
+
+                <button type="submit" class="btn btn-success ms-2 btn-sm">Aplicar cambios</button>
             </div>
           </form>
         </div>
