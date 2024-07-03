@@ -26,25 +26,38 @@
   {{-- NAVBAR --}}
   <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top shadow">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Arrienda</a>
+      <a class="navbar-brand" href="{{route('home.index')}}">Arrienda</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
+
+          @if(Gate::allows('usuarios-gestion'))
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link {{ Route::is('usuarios.index') ? 'active' : '' }}" aria-current="page" href="{{route('usuarios.index')}}">Gestionar Usuarios</a>
           </li>
+          @endif
+
+          @if(Gate::allows('servicios-gestion'))
           <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
+            <a class="nav-link {{ Route::is('vehiculos.index') ? 'active' : '' }}" aria-current="page" href="{{route('vehiculos.index')}}">Gestionar Vehiculos</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
+
+          <li class="nav-item {{ Route::is('tipos.index') ? 'active' : '' }}">
+            <a class="nav-link" aria-current="page" href="{{route('tipos.index')}}" aria-current="page" >Gestionar Tipos</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+
+          <li class="nav-item {{ Route::is('clientes.index') ? 'active' : '' }}">
+            <a class="nav-link" aria-current="page" href="{{route('clientes.index')}}" aria-current="page">Gestionar Clientes</a>
           </li>
+
+          <li class="nav-item {{ Route::is('') ? 'active' : '' }}" aria-current="page">
+            <a class="nav-link" aria-current="page" href="#">Gestionar Arriendos</a>
+          </li>
+          @endif
+
         </ul>
       </div>
       <div>

@@ -8,6 +8,8 @@
 
 <div class="container">
 
+
+    @if(Gate::allows('usuarios-gestion'))
     <div class="card mb-3">
         <div class="card-header">
             <h2 class="card-title">Acceder al menú principal de usuarios</h2>
@@ -20,6 +22,7 @@
             <a href=" {{route('usuarios.index')}} " class="btn btn-success">Ingresar al menú de usuarios</a>
         </div>
     </div>
+    @endif
 
     <div class="row">
 
