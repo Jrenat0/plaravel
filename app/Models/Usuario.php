@@ -31,4 +31,8 @@ class Usuario extends Authenticatable
         return $this->perfil->nombre == 'Ejecutivo';
     }
 
+    public function usuarioPerfil(){
+        return $this->perfil->nombre;
+    }
+
 }

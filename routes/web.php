@@ -20,9 +20,13 @@ Route::delete('/usuarios/{usuario}', [UsuariosController::class, 'destroy']) -> 
 Route::post('/usuarios', [UsuariosController::class, 'store']) -> name('usuarios.store');
 Route::put('/usuarios/{usuario}', [UsuariosController::class, 'update']) -> name('usuarios.update');
 
+Route::get('/usuarios/logout',[UsuariosController::class, 'logout'])->name('usuarios.logout');
+
 
 Route::get('/usuarios/login', [UsuariosController::class,'login'])->name('usuarios.login');
 Route::post('/usuarios/login',[UsuariosController::class,'autenticar'])->name('usuarios.autenticar');
+
+
 
 
 

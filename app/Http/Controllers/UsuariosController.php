@@ -7,12 +7,19 @@ use App\Models\Usuario;
 use App\Models\Perfil;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 
 class UsuariosController extends Controller
 {
     public function index()
     {
+
+        if(Gate::denies('usuarios-gestion')){
+            return redirect()->route('home.index');
+        }
+
+
         $usuarios = Usuario::all();
         $perfiles = Perfil::all();
         
@@ -85,6 +92,12 @@ class UsuariosController extends Controller
 
 
     public function login(){
+        return view('usuarios.login');
+    }
+
+    public function logout(){
+
+        Auth::logout();
         return view('usuarios.login');
     }
 
