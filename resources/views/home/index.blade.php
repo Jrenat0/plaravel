@@ -17,7 +17,7 @@
             <p class="card-text">Desde este menú podras acceder a las distintas funcionalidades relacionadas a la
                 gestion de
                 los usuarios del sistema.</p>
-            <a href="#" class="btn btn-success">Ingresar al menú de usuarios</a>
+            <a href=" {{route('usuarios.index')}} " class="btn btn-success">Ingresar al menú de usuarios</a>
         </div>
     </div>
 
@@ -31,7 +31,7 @@
                     <p class="card-text">Menú dedicado a la gestion de los Vehiculos almacenados en el sistema.</p>
                 </div>
                 <div class="card-footer" style="border-top: none">
-                    <a href="#" class="btn btn-success">Ingresar al menú de Vehiculos</a>
+                    <a href="{{route('vehiculos.index')}}" class="btn btn-success">Ingresar al menú de Vehiculos</a>
                 </div>
             </div>
         </div>
@@ -44,7 +44,7 @@
                     </p>
                 </div>
                 <div class="card-footer" style="border-top: none">
-                    <a href="#" class="btn btn-success">Ingresar al menú de tipos</a>
+                    <a href="{{route('tipos.index')}}" class="btn btn-success">Ingresar al menú de tipos</a>
                 </div>
             </div>
         </div>
@@ -56,7 +56,7 @@
                     <p class="card-text">Menú dedicado a la gestion de los clientes en el sistema.</p>
                 </div>
                 <div class="card-footer" style="border-top: none">
-                    <a href="#" class="btn btn-success">Ingresar al menú de clientes</a>
+                    <a href="{{route('clientes.index')}}" class="btn btn-success">Ingresar al menú de clientes</a>
                 </div>
 
             </div>
