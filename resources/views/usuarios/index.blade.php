@@ -62,9 +62,9 @@
                                     <form method="POST" action="{{route('usuarios.destroy', $usuario->email)}}">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="button" class="btn btn-danger"
+                                        <button type="button" class="btn btn-success"
                                             data-bs-dismiss="modal">Cancelar</button>
-                                        <button type="submit" class="btn btn-info">Borrar</button>
+                                        <button type="submit" class="btn btn-danger">Borrar</button>
                                     </form>
                                 </div>
                             </div>
