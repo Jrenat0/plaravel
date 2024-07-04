@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArriendosController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\VehiculosController;
@@ -65,3 +66,6 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/clientes/{cliente}', [ClientesController::class, 'destroy'])->name('clientes.destroy');
     Route::get('/clientes/{cliente}', [ClientesController::class, 'show'])->name('clientes.show');
 });
+
+
+Route::get('/arriendos', [ArriendosController::class, 'index'])->name('arriendos.index');

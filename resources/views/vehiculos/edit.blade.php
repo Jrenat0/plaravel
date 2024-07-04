@@ -6,8 +6,7 @@
 
 $(document).ready(function() {
     $('#btnLimpiar').click(function() {
-        // Vaciar los campos del formulario
-        $('form')[0].reset(); // Esto vacía todos los campos del primer formulario encontrado en la página
+        $('form')[0].reset();
     });
 });
 
@@ -32,12 +31,12 @@ $(document).ready(function() {
 
             <div class="mt-2">
                 <label class="form-label" for="marca">Marca: </label>
-                <input type="text" name="marca" id="marca" class="form-control">
+                <input type="text" name="marca" id="marca" class="form-control" value="{{$vehiculo->marca}}">
             </div>  
 
             <div class="mt-2">
                 <label class="form-label" for="anio">Año: </label>
-                <input type="text" name="anio" id="anio" class="form-control">
+                <input type="text" name="anio" id="anio" class="form-control" value="{{$vehiculo->anio}}">
             </div>  
 
             <div class="mt-3">
@@ -52,7 +51,7 @@ $(document).ready(function() {
             
             <div class="mt-2">
                 <label class="form-label" for="precio">Precio: </label>
-                <input type="integer" name="precio" id="precio" class="form-control">
+                <input type="integer" name="precio" id="precio" class="form-control" value="{{$vehiculo->precio}}">
             </div> 
 
             <div class="mt-2">

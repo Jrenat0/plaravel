@@ -88,6 +88,7 @@ class VehiculosController extends Controller
         $vehiculo->anio = $request->anio;
         $vehiculo->tipo_id = $request->tipo;
         $vehiculo->estado = $request->estado;
+        $vehiculo->precio = $request->precio;
         $vehiculo->save();
         return redirect()->route('vehiculos.index');
     }
