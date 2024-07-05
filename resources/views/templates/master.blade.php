@@ -78,7 +78,7 @@
           </li>
 
           <li class="nav-item mx-1" aria-current="page">
-            <a class="nav-link {{ Route::is('') ? 'active' : '' }}" aria-current="page" href="#">Arriendos</a>
+            <a class="nav-link {{ Route::is('arriendos.index') ? 'active' : '' }}" aria-current="page" href="{{route('arriendos.index')}}">Arriendos</a>
           </li>
           @endif
         </ul>
@@ -102,6 +102,8 @@
   <div class="container-fluid">
     @yield('contenido-principal')
   </div>
+
+  
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
   </script>

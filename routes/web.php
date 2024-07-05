@@ -69,3 +69,4 @@ Route::middleware(['auth'])->group(function () {
 
 
 Route::get('/arriendos', [ArriendosController::class, 'index'])->name('arriendos.index');
+Route::get('/arriendos/create', [ArriendosController::class, 'create'])->name('arriendos.create');

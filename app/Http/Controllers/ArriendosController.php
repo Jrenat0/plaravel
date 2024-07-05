@@ -2,29 +2,31 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cliente;
 use App\Models\Vehiculo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class ArriendosController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        
+        if(Gate::denies('servicios-gestion')){
+            return redirect()->route('home.index');
+        } 
         $vehiculos = Vehiculo::all();
-
         return view('arriendos.index',compact('vehiculos'));
-
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+
+    // No funciona
+    public function create(Vehiculo $vehiculo)
     {
-        //
+        
+        $clientes = Cliente::all();
+
+        return view('arriendos.create',compact(['vehiculo','clientes']));
+
     }
 
     /**
